@@ -7,13 +7,13 @@ import '../CSS/navbar.css'
 const Nav = props => {
 
     return <div>
-            <nav className={`nav-bar${props.current_user === '' && "-no-user"}`}>
+            <nav className={`nav-bar${!props.currentUser&& "-no-user"}`}>
                 <ul>
                     <Link to={"/"}>
                     <h3>Home</h3>
                     </Link>
                 </ul>
-                    {props.current_user === ''
+                    {!props.currentUser
                     ?
                         <>
                 <ul>
@@ -48,4 +48,4 @@ const Nav = props => {
            </div>
 }
 
-export default connect( state => ({ current_user: state.current_user }))(Nav)
+export default connect( state => ({ currentUser: state.currentUser}))(Nav)

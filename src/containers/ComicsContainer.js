@@ -3,8 +3,20 @@ import Nav from '../components/Nav'
 import { connect } from 'react-redux'
 import Comic from '../components/Comic'
 
+import * as actions from '../actions'
+
 class ComicsContainer extends React.Component {
-    
+
+    componentDidMount(){
+        this.props.getComics()
+        // this.props.signin()
+        this.props.increaseCounter()
+        this.props.increaseCounter()
+        this.props.increaseCounter()
+        this.props.increaseCounterBy(4)
+    }
+
+
     render(){
         return (
         <div>
@@ -17,4 +29,8 @@ class ComicsContainer extends React.Component {
     }
 }
 
-export default connect(state => ({ comics: state.comics }))(ComicsContainer)
+const mapStateToProps = state => ({
+    comics: state.comics
+})
+
+export default connect(mapStateToProps, actions)(ComicsContainer)

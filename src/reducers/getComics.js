@@ -1,15 +1,7 @@
-const getComics = (
-    state = {
-        comics: []
-    }, 
-    action) => {
+const getComics = (state = [], action) => {
     switch(action.type) {
         case 'GET_COMICS':
-            return (
-            fetch('URL')
-            .then(resp => resp.json())
-            .then({ ...state.comics })
-            .catch(error => alert(error.message)))
+            return action.payload
         default: 
             return state
     }
