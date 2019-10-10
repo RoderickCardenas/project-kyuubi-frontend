@@ -1,0 +1,9 @@
+.nav-bar {
+    display: inline-flex;
+    margin-left: 30%;
+}
+
+.nav-bar-no-user {
+    display: inline-flex;
+    margin-left: 33%;
+}
