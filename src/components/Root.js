@@ -5,22 +5,22 @@ import App from '../App'
 import Login from './Login'
 import SignUp from './SignUp'
 import ComicsContainer from '../containers/ComicsContainer'
-import Artists from './Artists'
+import ArtistsContainer from '../containers/ArtistsContainer'
 
 import '../CSS/root.css'
 
 const Root = ({ store }) => (
-< Provider store={store} >
+  <Provider store={store}>
     <Router>
-        <Switch>
-            <Route exact path='/' component={App} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/signup' component={SignUp} />
-            <Route exact path='/comics' component={ComicsContainer} />
-            <Route exact path='/artists' component={Artists} />
-        </Switch>
+      <Switch>
+        <Route exact path='/' component={App} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/signup' component={SignUp} />
+        <Route exact path='/comics' component={ComicsContainer} />
+        <Route exact path='/artists' component={ArtistsContainer} />
+      </Switch>
     </Router>
-</ Provider >
+  </Provider>
 )
 
 export default Root

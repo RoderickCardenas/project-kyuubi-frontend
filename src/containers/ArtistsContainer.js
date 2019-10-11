@@ -1,11 +1,11 @@
 import React from 'react'
 import Nav from '../components/Nav'
 import { connect } from 'react-redux'
-import Comic from '../components/Comic'
+import Artist from '../components/Artist'
 
 import * as actions from '../actions'
 
-class ComicsContainer extends React.Component {
+class ArtistsContainer extends React.Component {
   componentDidMount () {
     this.props.getComics()
     this.props.getArtists()
@@ -15,17 +15,18 @@ class ComicsContainer extends React.Component {
     return (
       <div>
         <Nav />
-        {this.props.comics.map(comic => (
-          <Comic key={comic.id} comic={comic} />
+        <h1>Hello World</h1>
+        {this.props.artists.map(artist => (
+          <Artist key={artist.id} artist={artist} />
         ))}
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({ comics: state.comics })
+const mapStateToProps = state => ({ artists: state.artists })
 
 export default connect(
   mapStateToProps,
   actions
-)(ComicsContainer)
+)(ArtistsContainer)
