@@ -1,18 +1,34 @@
 import React from 'react'
 import Nav from './Nav'
+import { connect } from 'react-redux'
+import * as actions from '../actions'
 
-const Login = () => {
+const Login = ({ logIn }) => {
+  const handleSubmit = e => {
+    e.preventDefault()
+    const user = {
+      username: e.target[0].value,
+      password: e.target[1].value
+    }
+    logIn(user)
+    e.target.reset()
+  }
+
   return (
     <div>
       <Nav />
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Username:</label>
         <input />
         <label>Password:</label>
-        <input />
+        <input type='password' />
+        <input type='submit' value='Login' />
       </form>
     </div>
   )
 }
 
-export default Login
+export default connect(
+  null,
+  actions
+)(Login)

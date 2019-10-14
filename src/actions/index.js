@@ -1,14 +1,33 @@
-export const signin = () => {
+export const loggedIn = () => {
   return dispatch => {
-    fetch('http://localhost:3000/api/v1/users', {
+    fetch('http://localhost:3000/api/v1/logged', {
       headers: { Authorization: localStorage.getItem('token') }
     })
       .then(resp => resp.json())
-      .then(user => dispatch({ type: 'USER_SIGNIN', payload: user }))
+      .then(data => dispatch({ type: 'USER_LOGIN', payload: data.user }))
   }
 }
 
-export const createUser = () => {
+export const logIn = user => {
+  return dispatch =>
+    fetch('http://localhost:3000/api/v1/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        user
+      })
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        dispatch({ type: 'USER_LOGIN', payload: data.user })
+        localStorage.setItem('token', data.jwt)
+      })
+}
+
+export const createUser = user => {
   return dispatch =>
     fetch('http://localhost:3000/api/v1/users', {
       method: 'POST',
@@ -18,17 +37,19 @@ export const createUser = () => {
       },
       body: JSON.stringify({
         user: {
-          first_name: 'Nic',
-          last_name: 'charlet',
-          username: 'niccharlet',
-          password: 'password',
-          avatar:
-            'https://upload.wikimedia.org/wikipedia/commons/9/9a/Guy_Fieri_at_Guantanamo_2.jpg'
+          first_name: user.first_name,
+          last_name: user.last_name,
+          username: user.username,
+          password: user.password,
+          avatar: user.avatar
         }
       })
     })
       .then(resp => resp.json())
-      .then(user => dispatch({ type: 'USER_CREATED', payload: user }))
+      .then(data => {
+        dispatch({ type: 'USER_CREATED', payload: data.user })
+        localStorage.setItem('token', data.jwt)
+      })
 }
 
 export const getComics = () => {
