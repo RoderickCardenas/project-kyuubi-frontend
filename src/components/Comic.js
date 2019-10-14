@@ -20,10 +20,10 @@ const Comic = ({ comic, artists }) => {
 
   return (
     <div className='comic-card'>
+      <img src={comic.image} alt='' />
       <h1>{comic.name}</h1>
       <h2>{artistName}</h2>
       <h2>{comic.date_added}</h2>
-      <img src={comic.image} alt='' />
     </div>
   )
 }

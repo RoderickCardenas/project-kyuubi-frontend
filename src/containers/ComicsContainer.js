@@ -3,6 +3,8 @@ import Nav from '../components/Nav'
 import { connect } from 'react-redux'
 import Comic from '../components/Comic'
 
+import '../CSS/comics.css'
+
 import * as actions from '../actions'
 
 class ComicsContainer extends React.Component {
@@ -13,12 +15,14 @@ class ComicsContainer extends React.Component {
 
   render () {
     return (
-      <div>
+      <>
         <Nav />
-        {this.props.comics.map(comic => (
-          <Comic key={comic.id} comic={comic} />
-        ))}
-      </div>
+        <div className='comics-container'>
+          {this.props.comics.map(comic => (
+            <Comic key={comic.id} comic={comic} />
+          ))}
+        </div>
+      </>
     )
   }
 }

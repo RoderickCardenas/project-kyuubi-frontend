@@ -1,14 +1,12 @@
 import React from 'react'
-
-import './App.css'
 import Nav from './components/Nav'
+import './App.css'
 
 function App () {
-  return (
-    <div className='main-container'>
-      <Nav />
-    </div>
-  )
+  return <>
+  <Nav />
+  <div className='main-container' />
+  </>
 }
 
 export default App
