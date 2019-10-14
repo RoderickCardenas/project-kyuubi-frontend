@@ -52,6 +52,38 @@ export const createUser = user => {
       })
 }
 
+export const incrementVote = (user_id, comic_id) => {
+  return dispatch =>
+    fetch('http://localhost:3000/comic_votes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        comic_vote: {
+          user_id,
+          comic_id
+        }
+      })
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        dispatch({ type: 'INCREMENT_VOTE', payload: data.comic_vote })
+      })
+}
+
+export const getVotes = () => {
+  return (dispatch, getState) => {
+    fetch('http://localhost:3000/votes')
+      .then(resp => resp.json())
+      .then(comic_votes =>
+        dispatch({ type: 'GET_VOTES', payload: comic_votes })
+      )
+      .catch(error => alert(error.message))
+  }
+}
+
 export const getComics = () => {
   return (dispatch, getState) => {
     fetch('http://localhost:3000/comics')

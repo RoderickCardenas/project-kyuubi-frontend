@@ -3,7 +3,7 @@ import Nav from './Nav'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 
-const SignUp = ({ createUser }) => {
+const SignUp = ({ createUser, history }) => {
   const handleSubmit = e => {
     e.preventDefault()
     const user = {
@@ -15,6 +15,7 @@ const SignUp = ({ createUser }) => {
     }
     createUser(user)
     e.target.reset()
+    history.push('/')
   }
 
   return (

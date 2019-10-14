@@ -3,6 +3,11 @@
     margin-left: 30%;
 }
 
+.nav-barfalse {
+    display: inline-flex;
+    margin-left: 33%;
+}
+
 .nav-bar-no-user {
     display: inline-flex;
     margin-left: 33%;

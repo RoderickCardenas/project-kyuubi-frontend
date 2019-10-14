@@ -27,7 +27,7 @@ const Nav = ({ currentUser, dispatch }) => {
           </>
         ) : (
           <ul>
-            <Link to={'/profilepage'}>
+            <Link to={'/profile'}>
               <h3>Profile</h3>
             </Link>
           </ul>
