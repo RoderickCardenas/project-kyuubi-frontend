@@ -3,6 +3,8 @@ import Nav from '../components/Nav'
 import { connect } from 'react-redux'
 import Artist from '../components/Artist'
 
+import '../CSS/artists.css'
+
 import * as actions from '../actions'
 
 class ArtistsContainer extends React.Component {
@@ -13,13 +15,15 @@ class ArtistsContainer extends React.Component {
 
   render () {
     return (
-      <div>
+      <>
+        {' '}
         <Nav />
-        <h1>Hello World</h1>
-        {this.props.artists.map(artist => (
-          <Artist key={artist.id} artist={artist} />
-        ))}
-      </div>
+        <div className='artists-container'>
+          {this.props.artists.map(artist => (
+            <Artist key={artist.id} artist={artist} />
+          ))}
+        </div>
+      </>
     )
   }
 }

@@ -3,7 +3,7 @@ import Nav from './Nav'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 
-const Login = ({ logIn }) => {
+const Login = ({ logIn, history }) => {
   const handleSubmit = e => {
     e.preventDefault()
     const user = {
@@ -12,6 +12,7 @@ const Login = ({ logIn }) => {
     }
     logIn(user)
     e.target.reset()
+    history.push('/')
   }
 
   return (
