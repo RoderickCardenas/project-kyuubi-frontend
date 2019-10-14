@@ -7,11 +7,13 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import currentUser from './reducers/currentUser'
 import getComics from './reducers/getComics'
 import getArtists from './reducers/getArtists'
+import getVotes from './reducers/comicVotes'
 
 import * as serviceWorker from './serviceWorker'
 import Root from './components/Root'
 
 const combinedReducers = combineReducers({
+  votes: getVotes,
   currentUser,
   comics: getComics,
   artists: getArtists
