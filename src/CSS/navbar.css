@@ -12,3 +12,21 @@
     display: inline-flex;
     margin-left: 33%;
 }
+
+.basket {
+    position: absolute;
+    top: -2.5%;
+    right: 5%;
+    font-size: 250%;
+}
+
+.basket-number {
+    position: absolute;
+    top: 9%;
+    right: 5.5%;
+    font-size: 80%;
+    border: solid, white;
+    background-color: white;
+    padding: 1px;
+    border-radius: 25px;
+}

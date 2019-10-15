@@ -1,104 +1,60 @@
+import API from '../API'
+
 export const loggedIn = () => {
   return dispatch => {
-    fetch('http://localhost:3000/api/v1/logged', {
-      headers: { Authorization: localStorage.getItem('token') }
-    })
-      .then(resp => resp.json())
-      .then(data => dispatch({ type: 'USER_LOGIN', payload: data.user }))
+    API.loggedIn().then(data =>
+      dispatch({ type: 'USER_LOGIN', payload: data.user })
+    )
   }
 }
 
 export const logIn = user => {
   return dispatch =>
-    fetch('http://localhost:3000/api/v1/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify({
-        user
-      })
+    API.logIn(user).then(data => {
+      dispatch({ type: 'USER_LOGIN', payload: data.user })
+      localStorage.setItem('token', data.jwt)
     })
-      .then(resp => resp.json())
-      .then(data => {
-        dispatch({ type: 'USER_LOGIN', payload: data.user })
-        localStorage.setItem('token', data.jwt)
-      })
+}
+
+export const logOut = () => {
+  return dispatch => {
+    localStorage.removeItem('token')
+    dispatch({ type: 'USER_SIGNOUT' })
+  }
 }
 
 export const createUser = user => {
   return dispatch =>
-    fetch('http://localhost:3000/api/v1/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify({
-        user: {
-          first_name: user.first_name,
-          last_name: user.last_name,
-          username: user.username,
-          password: user.password,
-          avatar: user.avatar
-        }
-      })
+    API.createUser(user).then(data => {
+      dispatch({ type: 'USER_CREATED', payload: data.user })
+      localStorage.setItem('token', data.jwt)
     })
-      .then(resp => resp.json())
-      .then(data => {
-        dispatch({ type: 'USER_CREATED', payload: data.user })
-        localStorage.setItem('token', data.jwt)
-      })
 }
 
 export const incrementVote = (user_id, comic_id) => {
   return (dispatch, getState) =>
-    fetch('http://localhost:3000/comic_votes', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify({
-        comic_vote: {
-          user_id,
-          comic_id
-        }
-      })
+    API.incrementVote(user_id, comic_id).then(data => {
+      if (data.message) {
+        alert(data.message)
+      } else {
+        dispatch({ type: 'GET_COMPLETE_COMIC', payload: data.complete_comic })
+        API.loggedIn().then(data =>
+          dispatch({ type: 'USER_LOGIN', payload: data.user })
+        )
+      }
     })
-      .then(resp => resp.json())
-      .then(data => {
-        if (data.message) {
-          alert(data.message)
-        } else {
-          dispatch({ type: 'GET_COMPLETE_COMIC', payload: data.complete_comic })
-        }
-      })
-}
-
-export const getVotes = () => {
-  return (dispatch, getState) => {
-    fetch('http://localhost:3000/comic_votes')
-      .then(resp => resp.json())
-      .then(data => dispatch({ type: 'GET_VOTES', payload: data.comic_votes }))
-      .catch(error => alert(error.message))
-  }
 }
 
 export const getComics = () => {
-  return (dispatch, getState) => {
-    fetch('http://localhost:3000/comics')
-      .then(resp => resp.json())
+  return dispatch =>
+    API.getComics()
       .then(comics => dispatch({ type: 'GET_COMICS', payload: comics }))
       .catch(error => alert(error.message))
-  }
 }
 
 export const getCompleteComic = id => {
-  return (dispatch, getState) => {
-    fetch(`http://localhost:3000/comics/${id}`)
-      .then(resp => resp.json())
+  return dispatch => {
+    API.getCompleteComic(id)
       .then(comic =>
         dispatch({ type: 'GET_COMPLETE_COMIC', payload: comic.complete_comic })
       )
@@ -107,19 +63,25 @@ export const getCompleteComic = id => {
 }
 
 export const getArtists = () => {
-  return (dispatch, getState) => {
-    fetch('http://localhost:3000/artists')
-      .then(resp => resp.json())
+  return dispatch => {
+    API.getArtists()
       .then(artists => dispatch({ type: 'GET_ARTISTS', payload: artists }))
       .catch(error => alert(error.message))
   }
 }
 
-export const increaseCounter = () => ({
-  type: 'COUNTER_UP'
-})
+export const saveCart = (key, basket, comic) => {
+  return dispatch => {
+    dispatch({ type: 'ADD_TO_BASKET', payload: [...basket, comic] })
+    localStorage.setItem(key, JSON.stringify([...basket, comic]))
+  }
+}
 
-export const increaseCounterBy = amount => ({
-  type: 'COUNTER_UP_BY',
-  payload: amount
-})
+export const loadCart = key => {
+  return dispatch => {
+    dispatch({
+      type: 'GET_BASKET',
+      payload: JSON.parse(localStorage.getItem(key))
+    })
+  }
+}

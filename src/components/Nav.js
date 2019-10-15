@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { IoIosBasket } from 'react-icons/io'
 import '../CSS/navbar.css'
+import * as actions from '../actions'
 
-const Nav = ({ currentUser, dispatch }) => {
+const Nav = ({ currentUser, basket, logOut, loadCart }) => {
+  useEffect(
+    () => {
+      if (localStorage.getItem('cart') !== null) {
+        loadCart('cart')
+      }
+    },
+    [loadCart]
+  )
+
+  const handleLogOut = () => {
+    logOut()
+  }
   return (
     <div>
       <nav className={`nav-bar${!currentUser && '-no-user'}`}>
@@ -43,20 +57,31 @@ const Nav = ({ currentUser, dispatch }) => {
           </Link>
         </ul>
         {!currentUser ? null : (
-          <ul>
-            <h3
-              onClick={() => {
-                localStorage.removeItem('token')
-                dispatch({ type: 'USER_SIGNOUT' })
-              }}
-            >
-              <Link to={'/'}>Log Out</Link>
-            </h3>
-          </ul>
+          <>
+            <ul>
+              <h3 onClick={handleLogOut}>
+                <Link to={'/'}>Log Out</Link>
+              </h3>
+            </ul>
+            <ul>
+              <Link to={'/basket'}>
+                <h3 className='basket'>
+                  <IoIosBasket />
+                </h3>
+                <h3 className='basket-number'>{basket ? basket.length : 0}</h3>
+              </Link>
+            </ul>
+          </>
         )}
       </nav>
     </div>
   )
 }
 
-export default connect(state => ({ currentUser: state.currentUser }))(Nav)
+export default connect(
+  state => ({
+    currentUser: state.currentUser,
+    basket: state.basket
+  }),
+  actions
+)(Nav)

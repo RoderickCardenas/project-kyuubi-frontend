@@ -11,9 +11,12 @@ class ComicPreview extends React.Component {
         this.props.currentUser.id,
         parseInt(this.props.id)
       )
-      this.props.loggedIn()
     } else {
     }
+  }
+
+  handleAddToBasket = () => {
+    this.props.saveCart('cart', this.props.basket, this.props.comic_preview)
   }
 
   componentDidMount () {
@@ -21,8 +24,8 @@ class ComicPreview extends React.Component {
   }
 
   render () {
-    const { comic_preview } = this.props
-    const { handleIncrement } = this
+    const { comic_preview, currentUser } = this.props
+    const { handleIncrement, handleAddToBasket } = this
     return (
       <div>
         <Nav />
@@ -31,12 +34,41 @@ class ComicPreview extends React.Component {
             <h1>{comic_preview.name}</h1>
             <h2>{comic_preview.artist}</h2>
             <img src={comic_preview.image} alt='' />
+            <h2>Description:</h2>
+            <h2>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </h2>
             <h2>Current Votes: </h2>
             <h2 className='current-votes'>
               {comic_preview.votes > 0 ? comic_preview.votes : 0}
             </h2>
-            <button className='counterUp-btn' onClick={handleIncrement}>
+            <h2>Price: £{comic_preview.price}</h2>
+            <button
+              className='counterUp-btn'
+              onClick={
+                currentUser
+                  ? () => handleIncrement()
+                  : () => alert('You must be logged in to vote!')
+              }
+            >
               +
+            </button>
+            <button
+              className='add-to-basket-btn'
+              onClick={
+                !currentUser
+                  ? () =>
+                    alert('You have to be logged in to add items to a basket')
+                  : () => handleAddToBasket()
+              }
+            >
+              Add to basket
             </button>
           </div>
         ) : (
@@ -49,7 +81,8 @@ class ComicPreview extends React.Component {
 
 const mapStateToProps = state => ({
   currentUser: state.currentUser,
-  comic_preview: state.comic_preview
+  comic_preview: state.comic_preview,
+  basket: state.basket
 })
 export default connect(
   mapStateToProps,
