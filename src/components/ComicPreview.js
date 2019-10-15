@@ -11,6 +11,7 @@ class ComicPreview extends React.Component {
         this.props.currentUser.id,
         parseInt(this.props.id)
       )
+      this.props.loggedIn()
     } else {
     }
   }
