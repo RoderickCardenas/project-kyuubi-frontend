@@ -1,57 +1,57 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Nav from './Nav'
 import { connect } from 'react-redux'
-import '../CSS/buttons.css'
+import '../CSS/comics.css'
 import * as actions from '../actions'
 
-const ComicPreview = ({
-  artists,
-  comics,
-  id,
-  currentUser,
-  incrementVote,
-  getVotes
-}) => {
-  const comic = comics.find(comic => comic.id === parseInt(id))
-  const artist = artists.find(artist => artist.id === comic.artist_id)
-
-  const handleIncrement = () => {
-    if (currentUser) {
-      incrementVote(currentUser.id, id)
+class ComicPreview extends React.Component {
+  handleIncrement = () => {
+    if (this.props.currentUser) {
+      this.props.incrementVote(
+        this.props.currentUser.id,
+        parseInt(this.props.id)
+      )
+      this.props.loggedIn()
     } else {
     }
   }
 
-  useEffect(() => {
-    if (currentUser) {
-      getVotes()
-    }
-  })
+  componentDidMount () {
+    this.props.getCompleteComic(parseInt(this.props.id))
+  }
 
-  return (
-    <div>
-      <Nav />
-      {comic ? (
-        <div className='comic-preview-container'>
-          <h1>{comic.name}</h1>
-          <h2>{artist.name}</h2>
-          <img src={comic.image} alt='' />
-          <h2>Current Votes: </h2>
-          <h2>0</h2>
-          <button className='counterUp-btn'>+</button>
-        </div>
-      ) : (
-        <h1>Error loading</h1>
-      )}
-    </div>
-  )
+  render () {
+    const { comic_preview } = this.props
+    const { handleIncrement } = this
+    return (
+      <div>
+        <Nav />
+        {comic_preview ? (
+          <div className='comic-preview-container'>
+            <h1>{comic_preview.name}</h1>
+            <h2>{comic_preview.artist}</h2>
+            <img src={comic_preview.image} alt='' />
+            <h2>Current Votes: </h2>
+            <h2 className='current-votes'>
+              {comic_preview.votes > 0 ? comic_preview.votes : 0}
+            </h2>
+            <button className='counterUp-btn' onClick={handleIncrement}>
+              +
+            </button>
+          </div>
+        ) : (
+          <h1>Loading Comic</h1>
+        )}
+      </div>
+    )
+  }
 }
 
+const mapStateToProps = state => ({
+  currentUser: state.currentUser,
+  comic_preview: state.comic_preview
+})
 export default connect(
-  state => ({
-    currentUser: state.currentUser,
-    comics: state.comics,
-    artists: state.artists
-  }),
+  mapStateToProps,
   actions
 )(ComicPreview)

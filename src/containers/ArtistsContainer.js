@@ -9,7 +9,6 @@ import * as actions from '../actions'
 
 class ArtistsContainer extends React.Component {
   componentDidMount () {
-    this.props.getComics()
     this.props.getArtists()
   }
 

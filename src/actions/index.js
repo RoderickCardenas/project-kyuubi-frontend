@@ -53,7 +53,7 @@ export const createUser = user => {
 }
 
 export const incrementVote = (user_id, comic_id) => {
-  return dispatch =>
+  return (dispatch, getState) =>
     fetch('http://localhost:3000/comic_votes', {
       method: 'POST',
       headers: {
@@ -69,17 +69,19 @@ export const incrementVote = (user_id, comic_id) => {
     })
       .then(resp => resp.json())
       .then(data => {
-        dispatch({ type: 'INCREMENT_VOTE', payload: data.comic_vote })
+        if (data.message) {
+          alert(data.message)
+        } else {
+          dispatch({ type: 'GET_COMPLETE_COMIC', payload: data.complete_comic })
+        }
       })
 }
 
 export const getVotes = () => {
   return (dispatch, getState) => {
-    fetch('http://localhost:3000/votes')
+    fetch('http://localhost:3000/comic_votes')
       .then(resp => resp.json())
-      .then(comic_votes =>
-        dispatch({ type: 'GET_VOTES', payload: comic_votes })
-      )
+      .then(data => dispatch({ type: 'GET_VOTES', payload: data.comic_votes }))
       .catch(error => alert(error.message))
   }
 }
@@ -89,6 +91,17 @@ export const getComics = () => {
     fetch('http://localhost:3000/comics')
       .then(resp => resp.json())
       .then(comics => dispatch({ type: 'GET_COMICS', payload: comics }))
+      .catch(error => alert(error.message))
+  }
+}
+
+export const getCompleteComic = id => {
+  return (dispatch, getState) => {
+    fetch(`http://localhost:3000/comics/${id}`)
+      .then(resp => resp.json())
+      .then(comic =>
+        dispatch({ type: 'GET_COMPLETE_COMIC', payload: comic.complete_comic })
+      )
       .catch(error => alert(error.message))
   }
 }

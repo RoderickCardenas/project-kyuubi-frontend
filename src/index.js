@@ -11,12 +11,14 @@ import getVotes from './reducers/comicVotes'
 
 import * as serviceWorker from './serviceWorker'
 import Root from './components/Root'
+import getCompleteComic from './reducers/getCompleteComic'
 
 const combinedReducers = combineReducers({
   votes: getVotes,
   currentUser,
   comics: getComics,
-  artists: getArtists
+  artists: getArtists,
+  comic_preview: getCompleteComic
 })
 
 const potato = ({ dispatch, getState }) => next => action =>

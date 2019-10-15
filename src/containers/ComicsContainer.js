@@ -10,7 +10,6 @@ import * as actions from '../actions'
 class ComicsContainer extends React.Component {
   componentDidMount () {
     this.props.getComics()
-    this.props.getArtists()
   }
 
   render () {
@@ -19,7 +18,7 @@ class ComicsContainer extends React.Component {
         <Nav />
         <div className='comics-container'>
           {this.props.comics.map(comic => (
-            <Comic key={comic.id} comic={comic} />
+            <Comic key={comic.id} comic={comic.complete_comic} />
           ))}
         </div>
       </>
