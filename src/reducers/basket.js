@@ -4,6 +4,8 @@ const basket = (state = [], action) => {
       return action.payload
     case 'ADD_TO_BASKET':
       return action.payload
+    case 'EMPTY_CART':
+      return action.payload
     default:
       return state
   }

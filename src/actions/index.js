@@ -23,6 +23,13 @@ export const logOut = () => {
   }
 }
 
+export const emptyCart = () => {
+  return dispatch => {
+    localStorage.removeItem('cart')
+    dispatch({ type: 'EMPTY_CART', payload: [] })
+  }
+}
+
 export const createUser = user => {
   return dispatch =>
     API.createUser(user).then(data => {

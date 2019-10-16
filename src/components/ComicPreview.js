@@ -30,7 +30,7 @@ class ComicPreview extends React.Component {
       <div>
         <Nav />
         {comic_preview ? (
-          <div className='comic-preview-container'>
+          <div className='comic-preview'>
             <h1>{comic_preview.name}</h1>
             <h2>{comic_preview.artist}</h2>
             <img src={comic_preview.image} alt='' />
