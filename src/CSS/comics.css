@@ -17,3 +17,17 @@
 .counterUp-btn {
   padding: 20px;
 }
+
+.comic-preview {
+  border-bottom: solid;
+  border-right: solid;
+  border-radius: 0px 25px 25px 25px;
+  padding: 1%;
+  margin: 2% 2% 2% 2%;
+}
+
+.comic-preview img{
+  width: 20%;
+  float: left;
+  margin: 1% 2% 1% 0%;
+}

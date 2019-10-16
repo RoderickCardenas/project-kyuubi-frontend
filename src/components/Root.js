@@ -40,14 +40,18 @@ const Root = ({ store, loggedIn }) => {
           <Route exact path='/comics' component={ComicsContainer} />
           <Route exact path='/artists' component={ArtistsContainer} />
           <Route exact path='/basket' component={Basket} />
-          <Route exact path='/comics/:id' children={<Child />} />
+          <Route
+            exact
+            path='/comics/:id'
+            children={<ComicPreviewController />}
+          />
         </Switch>
       </Router>
     </Provider>
   )
 }
 
-const Child = () => {
+const ComicPreviewController = () => {
   let { id } = useParams()
 
   return <ComicPreview id={id} />

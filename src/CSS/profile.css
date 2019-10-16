@@ -1,0 +1,14 @@
+.profile-container {
+  border-bottom: solid;
+  border-right: solid;
+  border-radius: 0px 25px 25px 25px;
+  padding: 1%;
+  margin: 2% 2% 2% 2%;
+}
+
+.profile-container img {
+  width: 200px;
+  margin: 1% 2% 1% 5%;
+  float: left;
+  border-radius: 50%;
+}
