@@ -19,7 +19,10 @@ class ArtistsContainer extends React.Component {
         <Nav />
         <div className='artists-container'>
           {this.props.artists.map(artist => (
-            <Artist key={artist.id} artist={artist} />
+            <Artist
+              key={artist.complete_artist.id}
+              artist={artist.complete_artist}
+            />
           ))}
         </div>
       </>
