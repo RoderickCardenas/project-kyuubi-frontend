@@ -3,7 +3,7 @@ import API from '../API'
 export const loggedIn = () => {
   return dispatch => {
     API.loggedIn().then(data =>
-      dispatch({ type: 'USER_LOGIN', payload: data.user })
+      dispatch({ type: 'USER_LOGIN', payload: data.user.user })
     )
   }
 }
@@ -14,7 +14,7 @@ export const logIn = user => {
       if (data.message) {
         // alert.(data.message)
       } else {
-        dispatch({ type: 'USER_LOGIN', payload: data.user })
+        dispatch({ type: 'USER_LOGIN', payload: data.user.user })
         localStorage.setItem('token', data.jwt)
       }
     })
@@ -34,10 +34,22 @@ export const emptyCart = () => {
   }
 }
 
+export const makePurchase = (user_id, comic_id) => {
+  return dispatch => {
+    API.createPurchase(user_id, comic_id).then(purchase => {
+      API.loggedIn().then(data =>
+        dispatch({ type: 'USER_LOGIN', payload: data.user.user })
+      )
+      localStorage.removeItem('cart')
+      dispatch({ type: 'EMPTY_CART', payload: [] })
+    })
+  }
+}
+
 export const createUser = user => {
   return dispatch =>
     API.createUser(user).then(data => {
-      dispatch({ type: 'USER_CREATED', payload: data.user })
+      dispatch({ type: 'USER_CREATED', payload: data.user.user })
       localStorage.setItem('token', data.jwt)
     })
 }
@@ -50,7 +62,7 @@ export const incrementVote = (user_id, comic_id) => {
       } else {
         dispatch({ type: 'GET_COMPLETE_COMIC', payload: data.complete_comic })
         API.loggedIn().then(data =>
-          dispatch({ type: 'USER_LOGIN', payload: data.user })
+          dispatch({ type: 'USER_LOGIN', payload: data.user.user })
         )
       }
     })
