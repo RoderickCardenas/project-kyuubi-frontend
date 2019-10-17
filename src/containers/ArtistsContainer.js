@@ -12,14 +12,37 @@ class ArtistsContainer extends React.Component {
     this.props.getArtists()
   }
 
+  shuffle (artists = []) {
+    let currentIndex = artists.length
+
+    let temporaryValue
+
+    let randomIndex
+
+    // While there remain elements to shuffle...
+    while (currentIndex !== 0) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex)
+      currentIndex -= 1
+      // And swap it with the current element.
+      temporaryValue = artists[currentIndex]
+      artists[currentIndex] = artists[randomIndex]
+      artists[randomIndex] = temporaryValue
+    }
+
+    return artists
+  }
+
   render () {
     return (
       <>
-        {' '}
         <Nav />
         <div className='artists-container'>
-          {this.props.artists.map(artist => (
-            <Artist key={artist.id} artist={artist} />
+          {this.shuffle(this.props.artists).map(artist => (
+            <Artist
+              key={artist.complete_artist.id}
+              artist={artist.complete_artist}
+            />
           ))}
         </div>
       </>
