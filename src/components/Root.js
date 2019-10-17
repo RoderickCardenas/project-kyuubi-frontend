@@ -14,7 +14,7 @@ import SignUp from './SignUp'
 import Basket from './Basket'
 import ComicsContainer from '../containers/ComicsContainer'
 import ArtistsContainer from '../containers/ArtistsContainer'
-import ComicPreview from './ComicPreview'
+import ComicShow from './ComicShow'
 import Profile from './Profile'
 
 import '../CSS/root.css'
@@ -40,21 +40,17 @@ const Root = ({ store, loggedIn }) => {
           <Route exact path='/comics' component={ComicsContainer} />
           <Route exact path='/artists' component={ArtistsContainer} />
           <Route exact path='/basket' component={Basket} />
-          <Route
-            exact
-            path='/comics/:id'
-            children={<ComicPreviewController />}
-          />
+          <Route exact path='/comics/:id' children={<ComicShowController />} />
         </Switch>
       </Router>
     </Provider>
   )
 }
 
-const ComicPreviewController = () => {
+const ComicShowController = () => {
   let { id } = useParams()
 
-  return <ComicPreview id={id} />
+  return <ComicShow id={id} />
 }
 
 export default connect(

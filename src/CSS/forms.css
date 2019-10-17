@@ -1,0 +1,95 @@
+.logIn {
+  width: 1000px;
+  border-radius: 25px;
+  padding: 50px;
+  margin: 125px 100px 100px 175px ;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: antiquewhite;
+  background-color: peru;
+}
+
+.logInForm {
+  margin-top: 50px;
+}
+
+#logInInput {
+  width: 400px;
+  font-size: 30px;
+  margin-bottom: 5%;
+  border-radius: 25px;
+  margin-left: 25px;
+}
+
+.logInLabel {
+  display: inline-block;
+  margin-left: 200px;
+}
+
+.password {
+  margin-left: 210px;
+}
+
+.logIn-btn {
+  margin-left: 570px;
+  width: 200px;
+  font-size: 30px;
+  margin-bottom: 5%;
+  border-radius: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+/*///////////////// SIGN UP ////////////////*/
+
+.signUp {
+  width: 1000px;
+  height: 550px;
+  border-radius: 25px;
+  padding: 50px;
+  margin: 0px 100px 0px 175px ;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+
+  color: antiquewhite;
+  background-color: peru;
+}
+
+.signUpForm {
+  margin-top: 50px;
+}
+
+.signUpInput {
+  width: 400px;
+  font-size: 30px;
+  margin-bottom: 5%;
+  border-radius: 25px;
+  margin-left: 25px;
+}
+
+.signUpLabel {
+  display: inline-block;
+  margin-left: 200px;
+}
+
+.signUpLabelAvatar {
+  display: inline-block;
+  margin-left: 255px;
+}
+
+.signUpLabelPassword {
+  display: inline-block;
+  margin-left: 210px;
+}
+
+.signUp-btn {
+  margin-left: 510px;
+  width: 280px;
+  font-size: 30px;
+  margin-bottom: 5%;
+  border-radius: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}

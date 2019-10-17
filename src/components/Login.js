@@ -2,6 +2,7 @@ import React from 'react'
 import Nav from './Nav'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
+import '../CSS/forms.css'
 
 const Login = ({ logIn, history }) => {
   const handleSubmit = e => {
@@ -18,13 +19,17 @@ const Login = ({ logIn, history }) => {
   return (
     <div>
       <Nav />
-      <form onSubmit={handleSubmit}>
-        <label>Username:</label>
-        <input />
-        <label>Password:</label>
-        <input type='password' />
-        <input type='submit' value='Login' />
-      </form>
+      <div className='logIn'>
+        <form className='logInForm' onSubmit={handleSubmit}>
+          <label className='logInLabel'>Username:</label>
+          <input id='logInInput' />
+          <br />
+          <label className='password'>Password:</label>
+          <input id='logInInput' type='password' />
+          <br />
+          <input className='logIn-btn' type='submit' value='Login' />
+        </form>
+      </div>
     </div>
   )
 }

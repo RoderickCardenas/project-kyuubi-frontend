@@ -2,6 +2,7 @@ import React from 'react'
 import Nav from '../components/Nav'
 import { connect } from 'react-redux'
 import Comic from '../components/Comic'
+import Banners from '../components/Banners'
 
 import '../CSS/comics.css'
 
@@ -37,6 +38,7 @@ class ComicsContainer extends React.Component {
     return (
       <>
         <Nav />
+        <Banners />
         <div className='comics-container'>
           {this.shuffle(this.props.comics).map(comic => (
             <Comic key={comic.complete_comic.id} comic={comic.complete_comic} />

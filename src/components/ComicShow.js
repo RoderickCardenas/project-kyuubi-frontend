@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import '../CSS/comics.css'
 import * as actions from '../actions'
 
-class ComicPreview extends React.Component {
+class ComicShow extends React.Component {
   handleIncrement = () => {
     if (this.props.currentUser) {
       this.props.incrementVote(
@@ -50,17 +50,17 @@ class ComicPreview extends React.Component {
             </h2>
             <h2>Price: £{comic_preview.price}</h2>
             <button
-              className='counterUp-btn'
+              className='comic-show-btn'
               onClick={
                 currentUser
                   ? () => handleIncrement()
                   : () => alert('You must be logged in to vote!')
               }
             >
-              +
+              Vote for comic
             </button>
             <button
-              className='add-to-basket-btn'
+              className='comic-show-btn'
               onClick={
                 !currentUser
                   ? () =>
@@ -87,4 +87,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   actions
-)(ComicPreview)
+)(ComicShow)

@@ -12,7 +12,7 @@ export const logIn = user => {
   return dispatch =>
     API.logIn(user).then(data => {
       if (data.message) {
-        // alert.(data.message)
+        alert(data.message)
       } else {
         dispatch({ type: 'USER_LOGIN', payload: data.user.user })
         localStorage.setItem('token', data.jwt)
