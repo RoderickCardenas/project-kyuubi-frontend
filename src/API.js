@@ -48,6 +48,21 @@ const createUser = user =>
     })
   }).then(resp => resp.json())
 
+const createPurchase = (user_id, comic_id) =>
+  fetch('http://localhost:3000/purchases', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    },
+    body: JSON.stringify({
+      purchase: {
+        user_id,
+        comic_id
+      }
+    })
+  }).then(resp => resp.json())
+
 const getComics = () =>
   fetch('http://localhost:3000/comics').then(resp => resp.json())
 
@@ -64,5 +79,6 @@ export default {
   createUser,
   getComics,
   getCompleteComic,
-  getArtists
+  getArtists,
+  createPurchase
 }

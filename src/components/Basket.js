@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import '../CSS/basket.css'
 import * as actions from '../actions'
 
-const Basket = ({ basket, emptyCart }) => {
+const Basket = ({ currentUser, basket, emptyCart, makePurchase }) => {
   const total = () => {
     let totalPrice = 0
     basket.forEach(item => {
@@ -15,6 +15,10 @@ const Basket = ({ basket, emptyCart }) => {
 
   const handleClick = () => {
     emptyCart()
+  }
+
+  const handleCheckOut = () => {
+    basket.forEach(comic => makePurchase(currentUser.id, comic.id))
   }
   return (
     <>
@@ -37,11 +41,16 @@ const Basket = ({ basket, emptyCart }) => {
         </div>
       ))}
       <h1 className='basket-item'>
-        Total: £{basket ? total() : 0}{' '}
+        Total: £{basket ? total() : 0}
         {basket.length > 0 ? (
-          <button onClick={handleClick} className='empty-cart-btn'>
-            Empty Cart
-          </button>
+          <>
+            <button onClick={handleCheckOut} className='make-purchase-btn'>
+              Checkout
+            </button>
+            <button onClick={handleClick} className='empty-cart-btn'>
+              Empty Cart
+            </button>
+          </>
         ) : null}
       </h1>
     </>
@@ -49,6 +58,6 @@ const Basket = ({ basket, emptyCart }) => {
 }
 
 export default connect(
-  state => ({ basket: state.basket }),
+  state => ({ basket: state.basket, currentUser: state.currentUser }),
   actions
 )(Basket)
