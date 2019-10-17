@@ -4,6 +4,9 @@
   padding: 50px;
   margin: 125px 100px 100px 175px ;
   font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: antiquewhite;
   background-color: peru;
 }
 
@@ -34,6 +37,8 @@
   font-size: 30px;
   margin-bottom: 5%;
   border-radius: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
 
 /*///////////////// SIGN UP ////////////////*/
@@ -45,6 +50,10 @@
   padding: 50px;
   margin: 0px 100px 0px 175px ;
   font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+
+  color: antiquewhite;
   background-color: peru;
 }
 
@@ -67,7 +76,7 @@
 
 .signUpLabelAvatar {
   display: inline-block;
-  margin-left: 250px;
+  margin-left: 255px;
 }
 
 .signUpLabelPassword {
@@ -76,9 +85,11 @@
 }
 
 .signUp-btn {
-  margin-left: 520px;
-  width: 250px;
+  margin-left: 510px;
+  width: 280px;
   font-size: 30px;
   margin-bottom: 5%;
   border-radius: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }

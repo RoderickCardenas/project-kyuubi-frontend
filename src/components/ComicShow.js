@@ -50,17 +50,17 @@ class ComicShow extends React.Component {
             </h2>
             <h2>Price: £{comic_preview.price}</h2>
             <button
-              className='counterUp-btn'
+              className='comic-show-btn'
               onClick={
                 currentUser
                   ? () => handleIncrement()
                   : () => alert('You must be logged in to vote!')
               }
             >
-              +
+              Vote for comic
             </button>
             <button
-              className='add-to-basket-btn'
+              className='comic-show-btn'
               onClick={
                 !currentUser
                   ? () =>
