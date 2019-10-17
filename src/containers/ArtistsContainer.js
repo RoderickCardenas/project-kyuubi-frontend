@@ -6,6 +6,7 @@ import Artist from '../components/Artist'
 import '../CSS/artists.css'
 
 import * as actions from '../actions'
+import Banners from '../components/Banners'
 
 class ArtistsContainer extends React.Component {
   componentDidMount () {
@@ -37,6 +38,7 @@ class ArtistsContainer extends React.Component {
     return (
       <>
         <Nav />
+        <Banners />
         <div className='artists-container'>
           {this.shuffle(this.props.artists).map(artist => (
             <Artist

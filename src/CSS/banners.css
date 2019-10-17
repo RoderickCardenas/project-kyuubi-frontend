@@ -1,0 +1,39 @@
+.banner-1 {
+  position: absolute;
+  margin-left: 19%;
+  margin-top: 2%;
+  width: 900px;
+  height: 100px;
+  background-color: lightcoral;
+  border-radius: 10px;
+}
+
+.banner-2 {
+  position: fixed;
+  margin-left: 3%;
+  margin-top: 2%;
+  width: 150px;
+  height: 625px;
+  background-color: lightcyan;
+  border-radius: 10px;
+}
+
+.banner-3 {
+  position: fixed;
+  margin-left: 87%;
+  margin-top: 2%;
+  width: 150px;
+  height: 625px;
+  background-color: lightgreen;
+  border-radius: 10px;
+}
+
+.main-container {
+  position: fixed;
+  margin-top: 10%;
+  margin-left: 19%;
+  width: 900px;
+  height: 510px;
+  background-color: rgb(17, 79, 17);
+  border-radius: 10px;
+}

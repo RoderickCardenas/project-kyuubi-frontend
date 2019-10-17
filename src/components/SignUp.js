@@ -21,19 +21,21 @@ const SignUp = ({ createUser, history }) => {
   return (
     <div>
       <Nav />
-      <form onSubmit={handleSubmit}>
-        <label>First Name:</label>
-        <input />
-        <label>Last Name:</label>
-        <input />
-        <label>Username:</label>
-        <input />
-        <label>Password:</label>
-        <input type='password' />
-        <label>Avatar:</label>
-        <input />
-        <input className='submit btn' value='Create Account' type='submit' />
-      </form>
+      <div className='signUp'>
+        <form className='signUpForm' onSubmit={handleSubmit}>
+          <label className='signUpLabel'>First Name:</label>
+          <input className='signUpInput' />
+          <label className='signUpLabel'>Last Name:</label>
+          <input className='signUpInput' />
+          <label className='signUpLabel'>Username:</label>
+          <input className='signUpInput' />
+          <label className='signUpLabelPassword'>Password:</label>
+          <input className='signUpInput' type='password' />
+          <label className='signUpLabelAvatar'>Avatar:</label>
+          <input className='signUpInput' />
+          <input className='signUp-btn' value='Create Account' type='submit' />
+        </form>
+      </div>
     </div>
   )
 }

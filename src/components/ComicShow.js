@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import '../CSS/comics.css'
 import * as actions from '../actions'
 
-class ComicPreview extends React.Component {
+class ComicShow extends React.Component {
   handleIncrement = () => {
     if (this.props.currentUser) {
       this.props.incrementVote(
@@ -87,4 +87,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   actions
-)(ComicPreview)
+)(ComicShow)

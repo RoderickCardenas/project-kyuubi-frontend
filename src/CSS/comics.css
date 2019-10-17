@@ -1,18 +1,36 @@
 .comics-container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
+  margin: 150px 200px 0px 200px;
 }
 .comic-card {
   border-right: solid;
   border-bottom: solid;
   border-radius: 25px;
+  border-color: peru;
   padding: 20px;
   margin: 10px;
+  width: 440px;
 }
+
+.see-details-btn {
+  margin-top: 10%;
+  margin-left: 1%;
+  float: left;
+}
+
 .comic-card img{
-  width: 50%;
+  width: 250px;
   float: right;
   border-radius: 10px;
+}
+
+.comic-card-text {
+  margin: 0;
+}
+
+.comic-text-size {
+  margin: 0;
 }
 
 .counterUp-btn {
