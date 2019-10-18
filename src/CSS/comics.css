@@ -1,7 +1,7 @@
 .comics-container {
   display: grid;
   grid-template-columns: auto auto;
-  margin: 150px 200px 0px 200px;
+  margin: 200px 200px 0px 200px;
 }
 .comic-card {
   border-right: solid;

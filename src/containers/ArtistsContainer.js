@@ -10,6 +10,7 @@ import Banners from '../components/Banners'
 
 class ArtistsContainer extends React.Component {
   componentDidMount () {
+    if (this.props.artists.length > 0) return
     this.props.getArtists()
   }
 

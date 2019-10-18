@@ -1,39 +1,44 @@
 .banner-1 {
   position: absolute;
-  margin-left: 19%;
-  margin-top: 2%;
-  width: 900px;
-  height: 100px;
+  margin-left: 15%;
+  margin-top: 0%;
+  width: 1000px;
+  height: 200px;
   background-color: lightcoral;
   border-radius: 10px;
+  background-image: url('../images/banner1.png');
+  background-size: 1000px 350px;
+  background-position: center;
 }
 
 .banner-2 {
   position: fixed;
   margin-left: 3%;
-  margin-top: 2%;
+  margin-top: 0%;
   width: 150px;
-  height: 625px;
+  height: 665px;
   background-color: lightcyan;
-  border-radius: 10px;
+  background-image: url('../images/banner2.png');
+  border-radius: 25px;
 }
 
 .banner-3 {
   position: fixed;
   margin-left: 87%;
-  margin-top: 2%;
+  margin-top: 0%;
   width: 150px;
-  height: 625px;
+  height: 665px;
   background-color: lightgreen;
-  border-radius: 10px;
+  background-image: url('../images/banner3.png');
+  border-radius: 25px;
 }
 
 .main-container {
   position: fixed;
-  margin-top: 10%;
-  margin-left: 19%;
-  width: 900px;
-  height: 510px;
-  background-color: rgb(17, 79, 17);
+  margin-top: 15%;
+  margin-left: 15%;
+  width: 1000px;
+  height: 450px;
+  background-color: rgba(109, 109, 109, 0.4);
   border-radius: 10px;
 }

@@ -22,10 +22,10 @@ const Login = ({ logIn, history }) => {
       <div className='logIn'>
         <form className='logInForm' onSubmit={handleSubmit}>
           <label className='logInLabel'>Username:</label>
-          <input id='logInInput' />
+          <input className='logInInput' />
           <br />
           <label className='password'>Password:</label>
-          <input id='logInInput' type='password' />
+          <input className='logInInput' type='password' />
           <br />
           <input className='logIn-btn' type='submit' value='Login' />
         </form>

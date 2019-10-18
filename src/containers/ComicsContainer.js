@@ -10,6 +10,8 @@ import * as actions from '../actions'
 
 class ComicsContainer extends React.Component {
   componentDidMount () {
+    if (this.props.comics.length > 0) return
+    console.log('mounting ComicsContainer')
     this.props.getComics()
   }
 

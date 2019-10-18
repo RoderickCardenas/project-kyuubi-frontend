@@ -1,76 +1,56 @@
-const loggedIn = () =>
-  fetch('http://localhost:3000/api/v1/logged', {
+const get = url =>
+  fetch(url, {
     headers: { Authorization: localStorage.getItem('token') }
   }).then(resp => resp.json())
 
-const logIn = user =>
-  fetch('http://localhost:3000/api/v1/login', {
+const post = (url, data) =>
+  fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Accept: 'application/json'
+      Accept: 'application/json',
+      Authorization: localStorage.getItem('token')
     },
-    body: JSON.stringify({
-      user
-    })
+    body: JSON.stringify(data)
   }).then(resp => resp.json())
+
+const loggedIn = () => get('http://localhost:3000/api/v1/logged')
+
+const logIn = user =>
+  post('http://localhost:3000/api/v1/login', {
+    user
+  })
 
 const incrementVote = (user_id, comic_id) =>
-  fetch('http://localhost:3000/comic_votes', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json'
-    },
-    body: JSON.stringify({
-      comic_vote: {
-        user_id,
-        comic_id
-      }
-    })
-  }).then(resp => resp.json())
+  post('http://localhost:3000/comic_votes', {
+    user_id,
+    comic_id
+  })
 
 const createUser = user =>
-  fetch('http://localhost:3000/api/v1/users', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json'
-    },
-    body: JSON.stringify({
-      user: {
-        first_name: user.first_name,
-        last_name: user.last_name,
-        username: user.username,
-        password: user.password,
-        avatar: user.avatar
-      }
-    })
-  }).then(resp => resp.json())
+  post('http://localhost:3000/api/v1/users', {
+    user: {
+      first_name: user.first_name,
+      last_name: user.last_name,
+      username: user.username,
+      password: user.password,
+      avatar: user.avatar
+    }
+  })
 
 const createPurchase = (user_id, comic_id) =>
-  fetch('http://localhost:3000/purchases', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json'
-    },
-    body: JSON.stringify({
-      purchase: {
-        user_id,
-        comic_id
-      }
-    })
-  }).then(resp => resp.json())
+  post('http://localhost:3000/purchases', {
+    purchase: {
+      user_id,
+      comic_id
+    }
+  })
 
-const getComics = () =>
-  fetch('http://localhost:3000/comics').then(resp => resp.json())
+const getComics = () => get('http://localhost:3000/comics')
 
-const getCompleteComic = id =>
-  fetch(`http://localhost:3000/comics/${id}`).then(resp => resp.json())
+const getCompleteComic = id => get(`http://localhost:3000/comics/${id}`)
 
-const getArtists = () =>
-  fetch('http://localhost:3000/artists').then(resp => resp.json())
+const getArtists = () => get('http://localhost:3000/artists')
 
 export default {
   loggedIn,
