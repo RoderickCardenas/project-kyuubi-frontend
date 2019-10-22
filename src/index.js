@@ -8,6 +8,8 @@ import currentUser from './reducers/currentUser'
 import getComics from './reducers/getComics'
 import getArtists from './reducers/getArtists'
 import basket from './reducers/basket'
+import topComic from './reducers/topComic'
+import recentlyAdded from './reducers/recentlyAdded'
 
 import * as serviceWorker from './serviceWorker'
 import Root from './components/Root'
@@ -18,6 +20,8 @@ const combinedReducers = combineReducers({
   comics: getComics,
   artists: getArtists,
   comic_preview: getCompleteComic,
+  topComic,
+  recentComics: recentlyAdded,
   basket
 })
 

@@ -108,3 +108,29 @@ export const loadCart = key => {
     })
   }
 }
+
+export const getTopComic = () => {
+  return dispatch => {
+    API.getTopComic()
+      .then(comics =>
+        dispatch({
+          type: 'GET_TOP_RATED_COMIC',
+          payload: comics
+        })
+      )
+      .catch(error => alert(error.message))
+  }
+}
+
+export const getRecentlyAdded = () => {
+  return dispatch => {
+    API.recentlyAdded()
+      .then(comics =>
+        dispatch({
+          type: 'GET_MOST_RECENT_COMICS',
+          payload: comics
+        })
+      )
+      .catch(error => alert(error.message))
+  }
+}

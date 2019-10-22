@@ -23,7 +23,6 @@ const Artist = ({ artist, comics }) => {
       return (
         <Link to={`/comics/${comic.id}`}>
           <img key={comic.id} src={comic.image} alt='' />
-          <h2>{comic.name}</h2>
         </Link>
       )
     })

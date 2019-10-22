@@ -35,7 +35,7 @@ class ComicShow extends React.Component {
             <h2>{comic_preview.artist}</h2>
             <img src={comic_preview.image} alt='' />
             <h2>Description:</h2>
-            <h2>
+            <p className='comic-description'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -43,11 +43,11 @@ class ComicShow extends React.Component {
               reprehenderit in voluptate velit esse cillum dolore eu fugiat
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </h2>
-            <h2>Current Votes: </h2>
+            </p>
+            {/* <h2>Current Votes: </h2>
             <h2 className='current-votes'>
               {comic_preview.votes > 0 ? comic_preview.votes : 0}
-            </h2>
+            </h2> */}
             <h2>Price: £{comic_preview.price}</h2>
             <button
               className='comic-show-btn'
