@@ -13,13 +13,13 @@ const Comic = ({ comic, artists }) => {
       <img src={comic.image} alt='' />
 
       <div className='comic-text-size'>
-        {show ? (
-          <>
-            <h2 className='comic-card-text'>{comic.name}</h2>
-            <h3 className='comic-card-text'>{comic.artist}</h3>
-            <h3 className='comic-card-text'>{comic.date_added}</h3>
-          </>
-        ) : null}
+        {/* {show ? ( */}
+        <>
+          <h2 className='comic-card-text'>{comic.name}</h2>
+          {/* <h3 className='comic-card-text'>{comic.artist}</h3>
+            <h3 className='comic-card-text'>{comic.date_added}</h3> */}
+        </>
+        {/* ) : null} */}
       </div>
       <Link to={`/comics/${comic.id}`}>
         <button className='see-details-btn'>See Details</button>

@@ -19,7 +19,7 @@ const Nav = ({ currentUser, basket, logOut, loadCart }) => {
     logOut()
   }
   return (
-    <div>
+    <div className='header'>
       <nav className={`nav-bar${!currentUser && '-no-user'}`}>
         <ul>
           <Link to={'/'}>

@@ -33,6 +33,8 @@ const Root = ({ store, loggedIn }) => {
     <Provider store={store}>
       <Router>
         <Switch>
+          {/* <section>
+            <div className='container'> */}
           <Route exact path='/' component={App} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={SignUp} />
@@ -45,6 +47,8 @@ const Root = ({ store, loggedIn }) => {
           <Route exact path='/artists' component={ArtistsContainer} />
           <Route exact path='/basket' component={Basket} />
           <Route exact path='/comics/:id' children={<ComicShowController />} />
+          {/* </div> */}
+          {/* </section> */}
         </Switch>
       </Router>
     </Provider>

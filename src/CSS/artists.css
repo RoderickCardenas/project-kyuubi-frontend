@@ -1,3 +1,4 @@
+
 .artists-container {
   flex-wrap: wrap;
   display: flex;
@@ -26,9 +27,67 @@ a {
 
 .artist-card img {
   width: 40%;
-  margin-left: 0%;
+  margin-left: -55%;
+}
+
+.artist-card h2 {
+  margin-left: -55%;
 }
 
 .slide-container {
   width: 70%;
   margin: auto; }
+
+  /* @media screen and (max-width: 1024px) {
+  }
+
+  @media screen and (max-width: 768px) {
+  } */
+/* ////////////////////////////////////// */
+/* ////////////////////////////////////// */
+/* ////////////////////////////////////// */
+/* ////////////////////////////////////// */
+@media screen and (min-width: 1500px) {
+
+  .artists-container {
+    flex-wrap: wrap;
+    display: flex;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    margin: 280px auto 0px auto;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .artist-card {
+    display: block;
+    border-right: solid;
+    border-bottom: solid;
+    border-radius: 25px;
+    padding: 30px;
+    margin: 65px;
+    width: 450px;
+    border-color: peru;
+    background-color: white;
+    /* flex-direction: row; */
+    /* justify-content: center; */
+  }
+
+  .artist-card img {
+    width: 20%;
+    margin-left: -75%;
+    border-radius: 25px;
+  }
+
+  .artist-card h2 {
+    margin-left: -55%;
+  }
+
+  .slide-container {
+    width: 70%;
+    margin: auto; 
+  }
+}

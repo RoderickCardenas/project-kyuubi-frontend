@@ -52,6 +52,10 @@ const getCompleteComic = id => get(`http://localhost:3000/comics/${id}`)
 
 const getArtists = () => get('http://localhost:3000/artists')
 
+const getTopComic = () => get('http://localhost:3000/comics/most_voted')
+
+const recentlyAdded = () => get('http://localhost:3000/comics/recently_added')
+
 export default {
   loggedIn,
   logIn,
@@ -60,5 +64,7 @@ export default {
   getComics,
   getCompleteComic,
   getArtists,
-  createPurchase
+  createPurchase,
+  getTopComic,
+  recentlyAdded
 }
