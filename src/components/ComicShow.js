@@ -49,6 +49,15 @@ class ComicShow extends React.Component {
               {comic_preview.votes > 0 ? comic_preview.votes : 0}
             </h2> */}
             <h2>Price: £{comic_preview.price}</h2>
+            {/* {currentUser ? (
+              <h2>
+                {currentUser.comics_voted_for.includes(comic_preview.id)
+                  ? 'true'
+                  : 'false'}
+              </h2>
+            ) : (
+              <h2>not logged</h2>
+            )} */}
             <button
               className='comic-show-btn'
               onClick={

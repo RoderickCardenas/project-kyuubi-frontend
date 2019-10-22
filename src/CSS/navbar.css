@@ -1,23 +1,23 @@
 .nav-barfalse {
     display: inline-flex;
-    margin-left: 33%;
+    margin-left: 25%;
 }
 
 .nav-bar-no-user {
     display: inline-flex;
-    margin-left: 33%;
+    margin-left: 24%;
 }
 
 .basket {
     position: absolute;
-    top: -2.5%;
+    top: -15%;
     right: 5%;
     font-size: 250%;
 }
 
 .basket-number {
     position: absolute;
-    top: 4%;
+    top: 40%;
     right: 5.5%;
     font-size: 80%;
     border: solid, white;
@@ -28,13 +28,14 @@
 
 .header {
     background-color: black;
+    position: relative;
 }
 
 /* ////////////////////////////////////// */
 /* ////////////////////////////////////// */
 /* ////////////////////////////////////// */
 /* ////////////////////////////////////// */
-@media screen and (min-width: 1500px) {
+/* @media screen and (min-width: 1500px) {
     
     .nav-barfalse {
         display: inline-flex;
@@ -47,14 +48,14 @@
     }
     
     .basket {
-        position: absolute;
+        position: relative;
         top: -2.5%;
         right: 5%;
         font-size: 250%;
     }
     
     .basket-number {
-        position: absolute;
+        position: relative;
         top: 2.5%;
         right: 5.25%;
         font-size: 80%;
@@ -70,4 +71,4 @@
     body {
         background-color: rgb(243, 239, 226);
     }
-}
+} */

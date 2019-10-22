@@ -23,7 +23,7 @@ const Profile = ({ currentUser }) => {
             {currentUser.comics_voted_for.map(comic => (
               <>
                 <hr />
-                <Link to={`/comics/${comic.id}`}>
+                <Link to={`/comics/${comic.comic_id}`}>
                   <h2>{comic.comic}</h2>
                 </Link>
               </>
@@ -34,7 +34,7 @@ const Profile = ({ currentUser }) => {
             {currentUser.purchases.map(comic => (
               <>
                 <hr />
-                <Link to={`/comics/${comic.id}`}>
+                <Link to={`/comics/${comic.comic_id}`}>
                   <h2>
                     {comic.comic} | Price: £{comic.price}
                   </h2>

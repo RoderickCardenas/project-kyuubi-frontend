@@ -1,42 +1,43 @@
 .banner-1 {
-  position: absolute;
-  margin-left: 15%;
-  margin-top: 10px;
+  position: relative;
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
   width: 1000px;
   height: 200px;
   border-radius: 10px;
-  background-size: 1000px 350px;
-  background-position: center;
 }
 
 .banner-2 {
-  position: fixed;
-  margin-left: 3%;
-  margin-top: 10px;
+  position: sticky;
+  top: 15%;
   width: 150px;
-  height: 665px;
+  height: 600px;
+  margin-left: 1%;
+  float: left;
   background-color: lightcyan;
   background-image: url('../images/banner2.png');
   border-radius: 25px;
 }
 
 .banner-3 {
-  position: fixed;
-  margin-left: 87%;
-  margin-top: 10px;
+  position: sticky;
+  top: 15%;
   width: 150px;
-  height: 665px;
+  height: 600px;
+  margin-right: 1%;
+  float: right;
   background-color: lightgreen;
   background-image: url('../images/banner3.png');
   border-radius: 25px;
 }
 
 .main-container {
-  position: fixed;
-  margin-top: 13%;
-  margin-left: 15%;
-  width: 1000px;
-  height: 490px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 680px;
+  height: 600px;
   background-color: rgba(109, 109, 109, 0.4);
   border-radius: 10px;
   overflow: scroll;
@@ -69,7 +70,6 @@ div.banner-1 > div + .indicators{
 .mainpage-top-comic {
   width: 250px;
   border-radius: 25px;
-  float: right;
   margin: 10px;
 }
 
@@ -78,7 +78,7 @@ div.banner-1 > div + .indicators{
   position: relative;
 }
 .comic-home-text-container {
-  width: 500px;
+  width: 350px;
   margin: 0;
   position: relative;
   float: left;
@@ -109,7 +109,7 @@ div.banner-1 > div + .indicators{
 /* ////////////////////////////////////// */
 /* ////////////////////////////////////// */
 /* ////////////////////////////////////// */
-@media screen and (min-width: 1500px) {
+/* @media screen and (min-width: 1500px) {
   .banner-1 {
     position: absolute;
     margin-left: 15%;
@@ -208,4 +208,4 @@ div.banner-1 > div + .indicators{
     width: 1700px;
     height: 480px;
   }
-}
+} */

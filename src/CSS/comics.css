@@ -1,7 +1,9 @@
 .comics-container {
-  display: grid;
-  grid-template-columns: auto auto;
-  margin: 200px 200px 0px 200px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
 }
 .comic-card {
   border-right: solid;
@@ -9,8 +11,10 @@
   border-radius: 25px;
   border-color: peru;
   padding: 20px;
-  margin: 10px;
-  width: 440px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 2%;
+  width: 240px;
 }
 
 .see-details-btn {
@@ -25,8 +29,7 @@
 }
 
 .comic-card img{
-  width: 250px;
-  float: right;
+  width: 175px;
   border-radius: 10px;
 }
 
@@ -68,7 +71,7 @@
 /* ////////////////////////////////////// */
 /* ////////////////////////////////////// */
 /* ////////////////////////////////////// */
-@media screen and (min-width: 1500px) {
+/* @media screen and (min-width: 1500px) {
   .comics-container {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -135,4 +138,4 @@
     margin: -5% 2% 1% 2%;
     border-radius: 10px;
   }
-}
+} */

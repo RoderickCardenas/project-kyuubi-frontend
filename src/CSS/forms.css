@@ -1,17 +1,15 @@
 .logIn {
-  width: 1000px;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
   border-radius: 25px;
   padding: 50px;
-  margin: 125px 100px 100px 175px ;
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: antiquewhite;
   background-color: peru;
-}
-
-.logInForm {
-  margin-top: 50px;
 }
 
 .logInInput {
@@ -24,15 +22,16 @@
 
 .logInLabel {
   display: inline-block;
-  margin-left: 200px;
+  margin-top: 30px;
+  margin-left: 10%;
 }
 
 .password {
-  margin-left: 210px;
+  margin-left: 11%;
 }
 
 .logIn-btn {
-  margin-left: 570px;
+  margin-left: 470px;
   width: 200px;
   font-size: 30px;
   margin-bottom: 5%;
@@ -44,11 +43,12 @@
 /*///////////////// SIGN UP ////////////////*/
 
 .signUp {
-  width: 1000px;
+  width: 800px;
   height: 550px;
   border-radius: 25px;
-  padding: 50px;
-  margin: 10px 100px 0px 175px ;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -56,36 +56,37 @@
   color: antiquewhite;
   background-color: peru;
 }
-
 .signUpForm {
-  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 80px;
 }
-
 .signUpInput {
   width: 400px;
   font-size: 30px;
   margin-bottom: 5%;
+  margin-right: auto;
+  margin-left: auto;
   border-radius: 25px;
-  margin-left: 25px;
 }
 
 .signUpLabel {
   display: inline-block;
-  margin-left: 200px;
+  margin-left: 5%;
 }
 
 .signUpLabelAvatar {
   display: inline-block;
-  margin-left: 255px;
+  margin-left: 14%;
 }
 
 .signUpLabelPassword {
   display: inline-block;
-  margin-left: 210px;
+  margin-left: 6%;
 }
 
 .signUp-btn {
-  margin-left: 510px;
+  margin-left: 320px;
   width: 280px;
   font-size: 30px;
   margin-bottom: 5%;
@@ -98,7 +99,7 @@
 /* ////////////////////////////////////// */
 /* ////////////////////////////////////// */
 /* ////////////////////////////////////// */
-@media screen and (min-width: 1500px) {
+/* @media screen and (min-width: 1500px) {
   .logIn {
     width: 1000px;
     border-radius: 25px;
@@ -145,7 +146,7 @@
     font-weight: bold;
   }
   
-  /*///////////////// SIGN UP ////////////////*/
+  ///////////////// SIGN UP //////////// 
   
   .signUp {
     width: 1000px;
@@ -201,4 +202,4 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
   }
-}
+} */
