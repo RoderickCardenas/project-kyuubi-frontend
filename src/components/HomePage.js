@@ -10,6 +10,9 @@ class HomePage extends React.Component {
   }
   componentDidMount () {
     const { getTopComic, getRecentlyAdded } = this.props
+    if (this.props.topComic.length > 0 && this.props.recentComics.length > 0) {
+      return
+    }
     getTopComic()
     getRecentlyAdded()
   }
