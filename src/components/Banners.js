@@ -5,13 +5,23 @@ import { Slide } from 'react-slideshow-image'
 class Banners extends React.Component {
   renderBannersSlideOne = () => {
     let imagesOne = [
-      'https://bannersforapp.s3.eu-west-2.amazonaws.com/banner1-1.png',
-      'https://bannersforapp.s3.eu-west-2.amazonaws.com/banner4.png'
+      {
+        image: 'https://bannersforapp.s3.eu-west-2.amazonaws.com/banner1-1.png',
+        link: 'https://www.zavvi.com/franchises/avengers-endgame.list'
+      },
+      {
+        image: 'https://bannersforapp.s3.eu-west-2.amazonaws.com/banner4.png',
+        link: 'https://www.dccomics.com/movies/joker'
+      }
     ]
     let key = 0
-    return imagesOne.map(image => {
+    return imagesOne.map(item => {
       key += 1
-      return <img key={key} className='each-slide' src={image} alt='' />
+      return (
+        <a href={item.link} target='_blank' rel='noopener noreferrer'>
+          <img key={key} className='each-slide' src={item.image} alt='' />
+        </a>
+      )
     })
   }
 

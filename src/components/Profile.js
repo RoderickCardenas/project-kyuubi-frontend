@@ -1,6 +1,7 @@
 import React from 'react'
 import Nav from './Nav'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import '../CSS/profile.css'
 
 const Profile = ({ currentUser }) => {
@@ -18,8 +19,27 @@ const Profile = ({ currentUser }) => {
             <h2>Votes Remaining: {currentUser.votes}</h2>
           </div>
           <div className='profile-container'>
+            <h1>Comics voted for this month:</h1>
             {currentUser.comics_voted_for.map(comic => (
-              <h2>{comic.name}</h2>
+              <>
+                <hr />
+                <Link to={`/comics/${comic.id}`}>
+                  <h2>{comic.comic}</h2>
+                </Link>
+              </>
+            ))}
+          </div>
+          <div className='profile-container'>
+            <h1>Purchase History:</h1>
+            {currentUser.purchases.map(comic => (
+              <>
+                <hr />
+                <Link to={`/comics/${comic.id}`}>
+                  <h2>
+                    {comic.comic} | Price: £{comic.price}
+                  </h2>
+                </Link>
+              </>
             ))}
           </div>
         </>

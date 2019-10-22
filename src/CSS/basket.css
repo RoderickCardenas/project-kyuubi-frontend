@@ -1,7 +1,14 @@
 .empty-cart-btn {
-  margin: 1% 0% 2% 60%;
   padding: 2%;
   border-radius: 25px;
+  display: inline;
+}
+
+.make-purchase-btn {
+  margin: 1% 1% 2% 48%;
+  padding: 2%;
+  border-radius: 25px;
+  display: inline;
 }
 
 .basket-item {
@@ -21,4 +28,42 @@
 
 .basket-description {
   text-align: justify;
+}
+
+/* ////////////////////////////////////// */
+/* ////////////////////////////////////// */
+/* ////////////////////////////////////// */
+/* ////////////////////////////////////// */
+@media screen and (min-width: 1500px) {
+  .empty-cart-btn {
+    padding: 2%;
+    border-radius: 25px;
+    display: inline-block;
+  }
+  
+  .make-purchase-btn {
+    margin: 1% 1% 2% 68%;
+    padding: 2%;
+    border-radius: 25px;
+    display: inline;
+  }
+  
+  .basket-item {
+    text-align: left;
+    width: 50%;
+    border-bottom: solid;
+    border-right: solid;
+    border-radius: 0px 25px 25px 25px;
+    padding: 1%;
+    margin: 2% 2% 2% 22%;
+  }
+  
+  .basket-item img {
+    width: 20%;
+    margin: 1% 2% 1% 0%;
+  }
+  
+  .basket-description {
+    text-align: justify;
+  }
 }
