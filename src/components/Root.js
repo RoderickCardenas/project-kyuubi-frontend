@@ -8,7 +8,6 @@ import {
 } from 'react-router-dom'
 import * as actions from '../actions'
 
-import App from '../App'
 import Login from './Login'
 import SignUp from './SignUp'
 import Basket from './Basket'
@@ -18,6 +17,8 @@ import ComicShow from './ComicShow'
 import Profile from './Profile'
 
 import '../CSS/root.css'
+import Nav from './Nav'
+import HomePage from './HomePage'
 
 const Root = ({ store, loggedIn }) => {
   useEffect(
@@ -30,12 +31,13 @@ const Root = ({ store, loggedIn }) => {
   )
 
   return (
-    <section>
-      <div className='container'>
-        <Provider store={store}>
-          <Router>
-            <Switch>
-              <Route exact path='/' component={App} />
+    <Provider store={store}>
+      <Router>
+        <Switch>
+          <section>
+            <Nav />
+            <div className='container'>
+              <Route exact path='/' component={HomePage} />
               <Route exact path='/login' component={Login} />
               <Route exact path='/signup' component={SignUp} />
               <Route exact path='/profile' component={Profile} />
@@ -51,11 +53,11 @@ const Root = ({ store, loggedIn }) => {
                 path='/comics/:id'
                 children={<ComicShowController />}
               />
-            </Switch>
-          </Router>
-        </Provider>
-      </div>
-    </section>
+            </div>
+          </section>
+        </Switch>
+      </Router>
+    </Provider>
   )
 }
 

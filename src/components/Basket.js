@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Nav from '../components/Nav'
 import '../CSS/basket.css'
 import * as actions from '../actions'
 
@@ -22,7 +21,6 @@ const Basket = ({ currentUser, basket, emptyCart, makePurchase }) => {
   }
   return (
     <>
-      <Nav />
       {basket.map(item => (
         <div key={item.id} className='basket-item'>
           <h1>{item.name}</h1>

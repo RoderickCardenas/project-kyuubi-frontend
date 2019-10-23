@@ -1,5 +1,4 @@
 import React from 'react'
-import Nav from './Nav'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import '../CSS/profile.css'
@@ -7,7 +6,6 @@ import '../CSS/profile.css'
 const Profile = ({ currentUser }) => {
   return (
     <div>
-      <Nav />
       <h1 className='profile-container'>Profile Page</h1>
       {currentUser ? (
         <>

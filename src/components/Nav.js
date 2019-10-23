@@ -20,15 +20,25 @@ const Nav = ({ currentUser, basket, logOut, loadCart }) => {
   }
   return (
     <div className='header'>
-      <nav className={`nav-bar${!currentUser && '-no-user'}`}>
+      <nav className='container'>
         <ul>
           <Link to={'/'}>
             <h3>Home</h3>
           </Link>
         </ul>
+        <ul>
+          <Link to={'/comics'}>
+            <h3>Comics</h3>
+          </Link>
+        </ul>
+        <ul>
+          <Link to={'/artists'}>
+            <h3>Artists</h3>
+          </Link>
+        </ul>
         {!currentUser ? (
           <>
-            <ul>
+            <ul className='last-child'>
               <Link to={'/login'}>
                 <h3>Login</h3>
               </Link>
@@ -40,29 +50,14 @@ const Nav = ({ currentUser, basket, logOut, loadCart }) => {
             </ul>
           </>
         ) : (
-          <ul>
+          <ul className='last-child'>
             <Link to={'/profile'}>
               <h3>Profile</h3>
             </Link>
           </ul>
         )}
-        <ul>
-          <Link to={'/comics'}>
-            <h3>Comics</h3>
-          </Link>
-        </ul>
-        <ul>
-          <Link to={'/artists'}>
-            <h3>Artists</h3>
-          </Link>
-        </ul>
         {!currentUser ? null : (
           <>
-            <ul>
-              <h3 onClick={handleLogOut}>
-                <Link to={'/'}>Log Out</Link>
-              </h3>
-            </ul>
             <ul>
               <Link to={'/basket'}>
                 <h3 className='basket'>
@@ -70,6 +65,11 @@ const Nav = ({ currentUser, basket, logOut, loadCart }) => {
                 </h3>
                 <h3 className='basket-number'>{basket ? basket.length : 0}</h3>
               </Link>
+            </ul>
+            <ul>
+              <h3 onClick={handleLogOut}>
+                <Link to={'/'}>Log Out</Link>
+              </h3>
             </ul>
           </>
         )}
