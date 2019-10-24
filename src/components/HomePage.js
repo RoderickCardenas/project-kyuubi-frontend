@@ -24,7 +24,7 @@ class HomePage extends React.Component {
 
   toShow = comics =>
     comics.map(comic => (
-      <div className='comic-home-container'>
+      <div key={comic.complete_comic.id} className='comic-home-container'>
         <Link to={`/comics/${comic.complete_comic.id}`}>
           <img
             className='mainpage-top-comic'

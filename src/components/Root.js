@@ -15,6 +15,7 @@ import ComicsContainer from '../containers/ComicsContainer'
 import ArtistsContainer from '../containers/ArtistsContainer'
 import ComicShow from './ComicShow'
 import Profile from './Profile'
+import About from './About'
 
 import '../CSS/root.css'
 import Nav from './Nav'
@@ -34,27 +35,30 @@ const Root = ({ store, loggedIn }) => {
     <Provider store={store}>
       <Router>
         <Switch>
-          <section>
+          <>
             <Nav />
-            <div className='container'>
-              <Route exact path='/' component={HomePage} />
-              <Route exact path='/login' component={Login} />
-              <Route exact path='/signup' component={SignUp} />
-              <Route exact path='/profile' component={Profile} />
-              <Route
-                exact
-                path='/comics'
-                render={props => <ComicsContainer {...props} />}
-              />
-              <Route exact path='/artists' component={ArtistsContainer} />
-              <Route exact path='/basket' component={Basket} />
-              <Route
-                exact
-                path='/comics/:id'
-                children={<ComicShowController />}
-              />
-            </div>
-          </section>
+            <section>
+              <div className='container'>
+                <Route exact path='/' component={HomePage} />
+                <Route exact path='/about' component={About} />
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/signup' component={SignUp} />
+                <Route exact path='/profile' component={Profile} />
+                <Route
+                  exact
+                  path='/comics'
+                  render={props => <ComicsContainer {...props} />}
+                />
+                <Route exact path='/artists' component={ArtistsContainer} />
+                <Route exact path='/basket' component={Basket} />
+                <Route
+                  exact
+                  path='/comics/:id'
+                  children={<ComicShowController />}
+                />
+              </div>
+            </section>
+          </>
         </Switch>
       </Router>
     </Provider>

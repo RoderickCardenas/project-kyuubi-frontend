@@ -21,9 +21,14 @@ const Nav = ({ currentUser, basket, logOut, loadCart }) => {
   return (
     <div className='header'>
       <nav className='container'>
-        <ul>
+        <ul className='first-ul'>
           <Link to={'/'}>
             <h3>Home</h3>
+          </Link>
+        </ul>
+        <ul>
+          <Link to={'/about'}>
+            <h3>About</h3>
           </Link>
         </ul>
         <ul>
@@ -38,7 +43,7 @@ const Nav = ({ currentUser, basket, logOut, loadCart }) => {
         </ul>
         {!currentUser ? (
           <>
-            <ul className='last-child'>
+            <ul className='align-right'>
               <Link to={'/login'}>
                 <h3>Login</h3>
               </Link>
@@ -50,7 +55,7 @@ const Nav = ({ currentUser, basket, logOut, loadCart }) => {
             </ul>
           </>
         ) : (
-          <ul className='last-child'>
+          <ul className='align-right'>
             <Link to={'/profile'}>
               <h3>Profile</h3>
             </Link>
@@ -59,17 +64,17 @@ const Nav = ({ currentUser, basket, logOut, loadCart }) => {
         {!currentUser ? null : (
           <>
             <ul>
+              <Link to={'/'}>
+                <h3 onClick={handleLogOut}>Log Out</h3>
+              </Link>
+            </ul>
+            <ul>
               <Link to={'/basket'}>
                 <h3 className='basket'>
                   <IoIosBasket />
                 </h3>
                 <h3 className='basket-number'>{basket ? basket.length : 0}</h3>
               </Link>
-            </ul>
-            <ul>
-              <h3 onClick={handleLogOut}>
-                <Link to={'/'}>Log Out</Link>
-              </h3>
             </ul>
           </>
         )}

@@ -1,5 +1,4 @@
 import React from 'react'
-import Nav from '../components/Nav'
 import { connect } from 'react-redux'
 import Artist from '../components/Artist'
 
@@ -38,7 +37,6 @@ class ArtistsContainer extends React.Component {
   render () {
     return (
       <>
-        <Nav />
         <Banners />
         <div className='artists-container'>
           {this.shuffle(this.props.artists).map(artist => (

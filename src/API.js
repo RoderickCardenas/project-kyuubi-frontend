@@ -14,21 +14,21 @@ const post = (url, data) =>
     body: JSON.stringify(data)
   }).then(resp => resp.json())
 
-const loggedIn = () => get('http://localhost:3000/api/v1/logged')
+const loggedIn = () => get('http://10.218.3.213:3000/api/v1/logged')
 
 const logIn = user =>
-  post('http://localhost:3000/api/v1/login', {
+  post('http://10.218.3.213:3000/api/v1/login', {
     user
   })
 
 const incrementVote = (user_id, comic_id) =>
-  post('http://localhost:3000/comic_votes', {
+  post('http://10.218.3.213:3000/comic_votes', {
     user_id,
     comic_id
   })
 
 const createUser = user =>
-  post('http://localhost:3000/api/v1/users', {
+  post('http://10.218.3.213:3000/api/v1/users', {
     user: {
       first_name: user.first_name,
       last_name: user.last_name,
@@ -39,22 +39,23 @@ const createUser = user =>
   })
 
 const createPurchase = (user_id, comic_id) =>
-  post('http://localhost:3000/purchases', {
+  post('http://10.218.3.213:3000/purchases', {
     purchase: {
       user_id,
       comic_id
     }
   })
 
-const getComics = () => get('http://localhost:3000/comics')
+const getComics = () => get('http://10.218.3.213:3000/comics')
 
-const getCompleteComic = id => get(`http://localhost:3000/comics/${id}`)
+const getCompleteComic = id => get(`http://10.218.3.213:3000/comics/${id}`)
 
-const getArtists = () => get('http://localhost:3000/artists')
+const getArtists = () => get('http://10.218.3.213:3000/artists')
 
-const getTopComic = () => get('http://localhost:3000/comics/most_voted')
+const getTopComic = () => get('http://10.218.3.213:3000/comics/most_voted')
 
-const recentlyAdded = () => get('http://localhost:3000/comics/recently_added')
+const recentlyAdded = () =>
+  get('http://10.218.3.213:3000/comics/recently_added')
 
 export default {
   loggedIn,
