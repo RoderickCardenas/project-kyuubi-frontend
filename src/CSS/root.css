@@ -65,6 +65,7 @@ code {
 
   .signUp {
     width: 80%;
+    height: 680px;
   }
   .logInInput {
     width: 80%;
@@ -74,7 +75,7 @@ code {
   }
 
   .signUp-btn {
-    margin-left: -15%;
+    margin-left: -28%;
   }
   .artist-card {
     width: 80%;
@@ -172,9 +173,6 @@ code {
     margin-top: 9px;
     margin-right: 0px;
     margin-left: -10px;
-  }
-  .react-slideshow-wrapper.slide {
-
   }
   .banner-1 .react-slideshow-container {
     margin-left: auto;
