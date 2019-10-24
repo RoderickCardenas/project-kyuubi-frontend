@@ -1,5 +1,4 @@
 import React from 'react'
-import Nav from './Nav'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import '../CSS/profile.css'
@@ -7,7 +6,6 @@ import '../CSS/profile.css'
 const Profile = ({ currentUser }) => {
   return (
     <div>
-      <Nav />
       <h1 className='profile-container'>Profile Page</h1>
       {currentUser ? (
         <>
@@ -23,7 +21,7 @@ const Profile = ({ currentUser }) => {
             {currentUser.comics_voted_for.map(comic => (
               <>
                 <hr />
-                <Link to={`/comics/${comic.id}`}>
+                <Link to={`/comics/${comic.comic_id}`}>
                   <h2>{comic.comic}</h2>
                 </Link>
               </>
@@ -34,7 +32,7 @@ const Profile = ({ currentUser }) => {
             {currentUser.purchases.map(comic => (
               <>
                 <hr />
-                <Link to={`/comics/${comic.id}`}>
+                <Link to={`/comics/${comic.comic_id}`}>
                   <h2>
                     {comic.comic} | Price: £{comic.price}
                   </h2>

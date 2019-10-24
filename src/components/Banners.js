@@ -18,7 +18,7 @@ class Banners extends React.Component {
     return imagesOne.map(item => {
       key += 1
       return (
-        <a href={item.link} target='_blank' rel='noopener noreferrer'>
+        <a key={key} href={item.link} target='_blank' rel='noopener noreferrer'>
           <img key={key} className='each-slide' src={item.image} alt='' />
         </a>
       )
@@ -40,8 +40,6 @@ class Banners extends React.Component {
         <Slide className='banner-1' {...slideProperties}>
           {renderBannersSlideOne()}
         </Slide>
-        {/* <div className='banner-1' /> */}
-        {/* {renderBannersSlideOne()} */}
         <div className='banner-2' />
         <div className='banner-3' />
       </>

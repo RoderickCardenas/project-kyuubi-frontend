@@ -1,5 +1,4 @@
 import React from 'react'
-import Nav from './Nav'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 
@@ -20,7 +19,6 @@ const SignUp = ({ createUser, history }) => {
 
   return (
     <div>
-      <Nav />
       <div className='signUp'>
         <form className='signUpForm' onSubmit={handleSubmit}>
           <label className='signUpLabel'>First Name:</label>

@@ -1,5 +1,4 @@
 import React from 'react'
-import Nav from './Nav'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 import '../CSS/forms.css'
@@ -18,7 +17,6 @@ const Login = ({ logIn, history }) => {
 
   return (
     <div>
-      <Nav />
       <div className='logIn'>
         <form className='logInForm' onSubmit={handleSubmit}>
           <label className='logInLabel'>Username:</label>

@@ -1,5 +1,4 @@
 import React from 'react'
-import Nav from './Nav'
 import { connect } from 'react-redux'
 import '../CSS/comics.css'
 import * as actions from '../actions'
@@ -28,7 +27,6 @@ class ComicShow extends React.Component {
     const { handleIncrement, handleAddToBasket } = this
     return (
       <div>
-        <Nav />
         {comic_preview ? (
           <div className='comic-preview'>
             <h1>{comic_preview.name}</h1>
@@ -49,6 +47,15 @@ class ComicShow extends React.Component {
               {comic_preview.votes > 0 ? comic_preview.votes : 0}
             </h2> */}
             <h2>Price: £{comic_preview.price}</h2>
+            {/* {currentUser ? (
+              <h2>
+                {currentUser.comics_voted_for.includes(comic_preview.id)
+                  ? 'true'
+                  : 'false'}
+              </h2>
+            ) : (
+              <h2>not logged</h2>
+            )} */}
             <button
               className='comic-show-btn'
               onClick={

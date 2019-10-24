@@ -3,6 +3,7 @@ import '../CSS/banners.css'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 import { Link } from 'react-router-dom'
+import Banners from './Banners'
 
 class HomePage extends React.Component {
   state = {
@@ -23,27 +24,23 @@ class HomePage extends React.Component {
 
   toShow = comics =>
     comics.map(comic => (
-      <div className='comic-home-container'>
+      <div key={comic.complete_comic.id} className='comic-home-container'>
         <Link to={`/comics/${comic.complete_comic.id}`}>
-          <div className='comic-home-text-container'>
-            <h2>{comic.complete_comic.name}</h2>
-            <h2>Description:</h2>
-            <p className='comic-home-description'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <h2>£{comic.complete_comic.price}</h2>
-          </div>
           <img
             className='mainpage-top-comic'
             src={comic.complete_comic.image}
             alt=''
           />
+          <div className='comic-home-text-container'>
+            <h2>{comic.complete_comic.name}</h2>
+
+            <p className='comic-home-description'>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam.
+            </p>
+            <h2>£{comic.complete_comic.price}</h2>
+          </div>
         </Link>
       </div>
     ))
@@ -51,41 +48,44 @@ class HomePage extends React.Component {
     const { topComic, recentComics } = this.props
     const { showRecent } = this.state
     return (
-      <div className='main-container'>
-        <button
-          className='main-page-button-one'
-          style={
-            showRecent
-              ? { background: 'lightgrey' }
-              : { background: 'darkgray' }
-          }
-          onClick={showRecent ? this.handleClick : null}
-        >
-          Top Voted
-        </button>
-        <button
-          className='main-page-button-two'
-          style={
-            showRecent
-              ? { background: 'darkgray' }
-              : { background: 'lightgray' }
-          }
-          onClick={showRecent ? null : this.handleClick}
-        >
-          Recently Added
-        </button>
-        <div className='main-comic-holder'>
-          {topComic.length > 0 ? (
-            showRecent ? (
-              this.toShow(recentComics)
+      <>
+        <Banners />
+        <div className='main-container'>
+          <button
+            className='main-page-button-one'
+            style={
+              showRecent
+                ? { background: 'lightgrey' }
+                : { background: 'darkgray' }
+            }
+            onClick={showRecent ? this.handleClick : null}
+          >
+            Top Voted
+          </button>
+          <button
+            className='main-page-button-two'
+            style={
+              showRecent
+                ? { background: 'darkgray' }
+                : { background: 'lightgray' }
+            }
+            onClick={showRecent ? null : this.handleClick}
+          >
+            Recently Added
+          </button>
+          <div className='main-comic-holder'>
+            {topComic.length > 0 ? (
+              showRecent ? (
+                this.toShow(recentComics)
+              ) : (
+                this.toShow(topComic)
+              )
             ) : (
-              this.toShow(topComic)
-            )
-          ) : (
-            <h2>Loading</h2>
-          )}
+              <h2>Loading</h2>
+            )}
+          </div>
         </div>
-      </div>
+      </>
     )
   }
 }

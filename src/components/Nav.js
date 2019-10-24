@@ -20,15 +20,30 @@ const Nav = ({ currentUser, basket, logOut, loadCart }) => {
   }
   return (
     <div className='header'>
-      <nav className={`nav-bar${!currentUser && '-no-user'}`}>
-        <ul>
+      <nav className='container'>
+        <ul className='first-ul'>
           <Link to={'/'}>
             <h3>Home</h3>
           </Link>
         </ul>
+        <ul>
+          <Link to={'/about'}>
+            <h3>About</h3>
+          </Link>
+        </ul>
+        <ul>
+          <Link to={'/comics'}>
+            <h3>Comics</h3>
+          </Link>
+        </ul>
+        <ul>
+          <Link to={'/artists'}>
+            <h3>Artists</h3>
+          </Link>
+        </ul>
         {!currentUser ? (
           <>
-            <ul>
+            <ul className='align-right'>
               <Link to={'/login'}>
                 <h3>Login</h3>
               </Link>
@@ -40,28 +55,18 @@ const Nav = ({ currentUser, basket, logOut, loadCart }) => {
             </ul>
           </>
         ) : (
-          <ul>
+          <ul className='align-right'>
             <Link to={'/profile'}>
               <h3>Profile</h3>
             </Link>
           </ul>
         )}
-        <ul>
-          <Link to={'/comics'}>
-            <h3>Comics</h3>
-          </Link>
-        </ul>
-        <ul>
-          <Link to={'/artists'}>
-            <h3>Artists</h3>
-          </Link>
-        </ul>
         {!currentUser ? null : (
           <>
             <ul>
-              <h3 onClick={handleLogOut}>
-                <Link to={'/'}>Log Out</Link>
-              </h3>
+              <Link to={'/'}>
+                <h3 onClick={handleLogOut}>Log Out</h3>
+              </Link>
             </ul>
             <ul>
               <Link to={'/basket'}>

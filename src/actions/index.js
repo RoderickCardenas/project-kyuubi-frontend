@@ -49,8 +49,12 @@ export const makePurchase = (user_id, comic_id) => {
 export const createUser = user => {
   return dispatch =>
     API.createUser(user).then(data => {
+      if (data.message) {
+        alert(data.message)
+      } else {
       dispatch({ type: 'USER_CREATED', payload: data.user.user })
       localStorage.setItem('token', data.jwt)
+      }
     })
 }
 
