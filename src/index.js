@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk'
+// import thunk from 'redux-thunk'
 
 // reducers
 import currentUser from './reducers/currentUser'
@@ -25,14 +25,14 @@ const combinedReducers = combineReducers({
   basket
 })
 
-// const potato = ({ dispatch, getState }) => next => action =>
-//   typeof action === 'function' ? action(dispatch, getState) : next(action)
+const potato = ({ dispatch, getState }) => next => action =>
+  typeof action === 'function' ? action(dispatch, getState) : next(action)
 
 const store = createStore(
   combinedReducers,
   compose(
-    applyMiddleware(thunk)
-    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    applyMiddleware(potato),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 )
 
