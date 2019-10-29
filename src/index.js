@@ -31,8 +31,8 @@ const potato = ({ dispatch, getState }) => next => action =>
 const store = createStore(
   combinedReducers,
   compose(
-    applyMiddleware(potato),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    applyMiddleware(potato)
+    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 )
 
