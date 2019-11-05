@@ -12,6 +12,14 @@ class Banners extends React.Component {
       {
         image: 'https://bannersforapp.s3.eu-west-2.amazonaws.com/banner4.png',
         link: 'https://www.dccomics.com/movies/joker'
+      },
+      {
+        image: 'https://bannersforapp.s3.eu-west-2.amazonaws.com/banner1-1.png',
+        link: 'https://www.zavvi.com/franchises/avengers-endgame.list'
+      },
+      {
+        image: 'https://bannersforapp.s3.eu-west-2.amazonaws.com/banner4.png',
+        link: 'https://www.dccomics.com/movies/joker'
       }
     ]
     let key = 0
